@@ -4,8 +4,8 @@
 // 标签定义
 #define TAG_MAIN "SHELLCODE"
 // 目标配置
-static const char* TARGET_LIBRARY = "libGuardCore.so";
-static const char* TARGET_SYMBOL = "_Z5ioctlv";
+static const char* TARGET_LIBRARY = "libxxx.so";
+static const char* TARGET_SYMBOL = "xxxx";
 
 
 
