@@ -194,30 +194,7 @@ int fd = sys_open("/proc/version", O_RDONLY, 0);
 void *mem = sys_mmap(0, 4096, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 ```
 
-## ⚙️ 自定义配置
-
-### 修改入口点
-
-默认入口点是`_start`函数，位于`src/entry.c`。你可以修改这个函数来改变shellcode的行为：
-
-```c
-void __attribute__((naked, noreturn, section(".text._start"))) _start(void) {
-    // 你的自定义入口点代码
-    // 通常调用main()函数或直接执行shellcode逻辑
-}
-```
-
-### 修改主要功能
-
-主要的shellcode逻辑在`src/main.c`的`main()`函数中。你可以根据需要修改这个函数来实现不同的功能。
-
-## 🛠️ 构建选项
-
-### CMake变量
-
-- `ANDROID_ABI` - 目标架构 (`arm64-v8a` 或 `armeabi-v7a`)
-- `ANDROID_PLATFORM` - Android API级别 (如 `android-21`)
-- `CMAKE_BUILD_TYPE` - 构建类型 (`Release` 或 `Debug`)
+### 该项目使用CLion构建 请查看CLion配置说明或者自行构建
 
 ### 编译器标志
 
