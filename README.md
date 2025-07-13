@@ -33,69 +33,8 @@ ShellCode/
     └── main.c                  # 主程序演示
 ```
 
-## 🚀 快速开始
 
-### 1. 环境准备
 
-确保你已经安装了Android NDK：
-
-```bash
-# 设置Android NDK环境变量
-export ANDROID_NDK="/path/to/your/android-ndk"
-
-# 或者在Windows上:
-# set ANDROID_NDK=F:\AndroidSDK\ndk\25.1.8937393
-```
-
-### 2. 使用构建脚本（推荐）
-
-```bash
-# 赋予执行权限
-chmod +x build_shellcode.sh
-
-# 构建所有架构
-./build_shellcode.sh
-
-# 只构建ARM64版本
-./build_shellcode.sh arm64
-
-# 只构建ARM32版本
-./build_shellcode.sh arm32
-
-# 指定API级别
-./build_shellcode.sh --api 28 arm64
-
-# 显示帮助
-./build_shellcode.sh --help
-```
-
-### 3. 手动构建
-
-```bash
-# 创建构建目录
-mkdir build_arm64
-cd build_arm64
-
-# 配置CMake (ARM64)
-cmake \
-    -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK/build/cmake/android.toolchain.cmake" \
-    -DANDROID_ABI=arm64-v8a \
-    -DANDROID_PLATFORM=android-21 \
-    -DCMAKE_BUILD_TYPE=Release \
-    ..
-
-# 编译
-make -j$(nproc)
-```
-
-## 📤 输出文件
-
-构建完成后，会生成以下文件：
-
-- **`shellcode`** - ELF格式的可执行文件
-- **`shellcode.bin`** - 纯二进制shellcode文件
-- **`shellcode_data.h`** - C头文件格式（可嵌入其他程序）
-- **`shellcode.asm`** - 反汇编文件
 
 ## 💡 使用示例
 
